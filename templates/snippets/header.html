@@ -1,0 +1,79 @@
+{% load static %}
+<div class="container-fluid bg-warning p-md-3">
+    <div class="row">
+        <div class="col-md-1 px-md-2">
+            <h5 class="mr-3 font-weight-normal justify-content-start">
+                <a class="p-2 text-dark" href="{% url 'home' %}">HOME</a>
+            </h5>
+        </div>
+        <div class="col-md-3">
+            <form class="search-bar justify-content-start" onsubmit="return executeQuery();">
+                <input type="text" class="form-control" name="q" id="id_q_large" placeholder="Search...">
+            </form>
+        </div>
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-2">
+            {% if request.user.is_authenticated %}
+                <div class="row">
+                    <div class="col-3 m-auto">
+                        <div class="dropdown">
+                            <div class="btn-group">
+                                <button type="button" id="id_chat_notification_dropdown_toggle" class="btn btn-secondary" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa-solid fa-comment fa-2x"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="id_chat_notification_dropdown_toggle">
+                                    <button class="dropdown-item" type="button">Action</button>
+                                    <button class="dropdown-item" type="button">Another action</button>
+                                    <button class="dropdown-item" type="button">Something else here</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 m-auto">
+                        <div class="dropdown">
+                            <div class="btn-group">
+                                <button type="button" id="id_notification_dropdown_toggle" class="btn btn-secondary" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa-solid fa-bell fa-2x"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="id_notification_dropdown_toggle">
+                                    <button class="dropdown-item" type="button">Action</button>
+                                    <button class="dropdown-item" type="button">Another action</button>
+                                    <button class="dropdown-item" type="button">Something else here</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 m-auto">
+                        <div class="btn-group">
+                            <button type="button" id="id_profile_links" class="btn btn-secondary" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa-solid fa-user fa-2x"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="id_profile_links">
+                                <button class="dropdown-item" type="button">Action</button>
+                                <button class="dropdown-item" type="button">Another action</button>
+                                <button class="dropdown-item" type="button">Something else here</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="#">Login</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="#">Register</a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
