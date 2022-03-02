@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from telnetlib import AUTHENTICATION
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,8 +29,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Because I created my user model!!!!
+# Because I created my user model!!!! Hey django! Anymore see new user model not default model!
 AUTH_USER_MODEL = "account.Account"
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.AllowAllUsersModelBackend',
+    'account.backends.CaseInsensitiveModelBackend'
+)
 
 # Application definition
 

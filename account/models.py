@@ -12,16 +12,16 @@ class MyAccountManager(BaseUserManager):
             raise ValueError("Users must have a username")
         user = self.model(
             email = self.normalize_email(email),
-            username = username
+            username = username,
         )
         user.set_password(password)
         user.save(using=self._db)
         return user
     def create_superuser(self, email, username, password):
-        user = self.create_superuser(
+        user = self.create_user(
             email = self.normalize_email(email),
             username = username,
-            password = password
+            password = password,
         )
         user.is_admin = True
         user.is_staff = True
@@ -68,3 +68,7 @@ class Account(AbstractBaseUser):
         return self.is_admin
     def has_module_perms(self, app_label):
         return True
+
+
+# I created user and superuser in this file. I want to login with email. There are email and password on admin panel. 
+# let's write admin.py. Because now  I don't see anything on admin about user. 
